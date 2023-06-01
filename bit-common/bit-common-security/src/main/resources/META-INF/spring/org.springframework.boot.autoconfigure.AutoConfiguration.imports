@@ -1,3 +1,3 @@
-org.dromara.common.security.handler.GlobalExceptionHandler
-org.dromara.common.security.handler.AllUrlHandler
-org.dromara.common.security.config.SecurityConfig
+com.bit.common.security.handler.GlobalExceptionHandler
+com.bit.common.security.handler.AllUrlHandler
+com.bit.common.security.config.SecurityConfig

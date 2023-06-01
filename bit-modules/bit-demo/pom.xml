@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.bit</groupId>
+        <groupId>com.bit</groupId>
         <artifactId>bit-modules</artifactId>
         <version>${revision}</version>
     </parent>
@@ -19,82 +19,82 @@
 
         <!-- 通用工具-->
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-core</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-doc</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-sms</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-mail</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-redis</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-idempotent</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-mybatis</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-log</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-excel</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-ratelimiter</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-translation</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-sensitive</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-encrypt</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-tenant</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-websocket</artifactId>
         </dependency>
         <!-- 短信 用哪个导入哪个依赖 -->

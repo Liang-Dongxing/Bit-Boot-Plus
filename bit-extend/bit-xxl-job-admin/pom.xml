@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>bit-extend</artifactId>
-        <groupId>org.bit</groupId>
+        <groupId>com.bit</groupId>
         <version>${revision}</version>
     </parent>
     <artifactId>bit-xxl-job-admin</artifactId>

@@ -3,7 +3,7 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.bit</groupId>
+        <groupId>com.bit</groupId>
         <artifactId>bit-common</artifactId>
         <version>${revision}</version>
     </parent>
@@ -34,7 +34,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.bit</groupId>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-core</artifactId>
         </dependency>
 

@@ -1,1 +1,1 @@
-org.dromara.common.ratelimiter.config.RateLimiterConfig
+com.bit.common.ratelimiter.config.RateLimiterConfig

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.bit</groupId>
+    <groupId>com.bit</groupId>
     <artifactId>bit-boot-plus</artifactId>
     <version>${revision}</version>
 
@@ -113,7 +113,7 @@
 
             <!-- common 的依赖配置-->
             <dependency>
-                <groupId>org.bit</groupId>
+                <groupId>com.bit</groupId>
                 <artifactId>bit-common-bom</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
@@ -312,25 +312,25 @@
             </dependency>
 
             <dependency>
-                <groupId>org.bit</groupId>
+                <groupId>com.bit</groupId>
                 <artifactId>bit-system</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.bit</groupId>
+                <groupId>com.bit</groupId>
                 <artifactId>bit-job</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.bit</groupId>
+                <groupId>com.bit</groupId>
                 <artifactId>bit-generator</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.bit</groupId>
+                <groupId>com.bit</groupId>
                 <artifactId>bit-demo</artifactId>
                 <version>${revision}</version>
             </dependency>
