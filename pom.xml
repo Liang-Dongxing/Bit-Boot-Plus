@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.dromara</groupId>
-    <artifactId>ruoyi-vue-plus</artifactId>
+    <groupId>org.bit</groupId>
+    <artifactId>bit-boot-plus</artifactId>
     <version>${revision}</version>
 
-    <name>RuoYi-Vue-Plus</name>
-    <url>https://gitee.com/dromara/RuoYi-Vue-Plus</url>
-    <description>RuoYi-Vue-Plus多租户管理系统</description>
+    <name>Bit-Boot-Plus</name>
+    <url>https://github.com/Liang-Dongxing/Bit-Boot-Plus</url>
+    <description>Bit-Boot-Plus多租户管理系统</description>
 
     <properties>
         <revision>5.1.0-SNAPSHOT</revision>
@@ -113,8 +113,8 @@
 
             <!-- common 的依赖配置-->
             <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-common-bom</artifactId>
+                <groupId>org.bit</groupId>
+                <artifactId>bit-common-bom</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -312,26 +312,26 @@
             </dependency>
 
             <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-system</artifactId>
+                <groupId>org.bit</groupId>
+                <artifactId>bit-system</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-job</artifactId>
+                <groupId>org.bit</groupId>
+                <artifactId>bit-job</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-generator</artifactId>
+                <groupId>org.bit</groupId>
+                <artifactId>bit-generator</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-demo</artifactId>
+                <groupId>org.bit</groupId>
+                <artifactId>bit-demo</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -339,10 +339,10 @@
     </dependencyManagement>
 
     <modules>
-        <module>ruoyi-admin</module>
-        <module>ruoyi-common</module>
-        <module>ruoyi-extend</module>
-        <module>ruoyi-modules</module>
+        <module>bit-admin</module>
+        <module>bit-common</module>
+        <module>bit-extend</module>
+        <module>bit-modules</module>
     </modules>
     <packaging>pom</packaging>
 

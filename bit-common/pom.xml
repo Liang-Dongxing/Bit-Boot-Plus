@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bit-boot-plus</artifactId>
+        <groupId>org.bit</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>bit-common-bom</module>
+        <module>bit-common-core</module>
+        <module>bit-common-doc</module>
+        <module>bit-common-excel</module>
+        <module>bit-common-idempotent</module>
+        <module>bit-common-job</module>
+        <module>bit-common-log</module>
+        <module>bit-common-mail</module>
+        <module>bit-common-mybatis</module>
+        <module>bit-common-oss</module>
+        <module>bit-common-ratelimiter</module>
+        <module>bit-common-redis</module>
+        <module>bit-common-satoken</module>
+        <module>bit-common-security</module>
+        <module>bit-common-sms</module>
+        <module>bit-common-web</module>
+        <module>bit-common-translation</module>
+        <module>bit-common-sensitive</module>
+        <module>bit-common-json</module>
+        <module>bit-common-encrypt</module>
+        <module>bit-common-tenant</module>
+        <module>bit-common-websocket</module>
+    </modules>
+
+    <artifactId>bit-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        common 通用模块
+    </description>
+
+</project>

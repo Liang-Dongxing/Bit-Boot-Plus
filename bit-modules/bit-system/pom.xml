@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.bit</groupId>
+        <artifactId>bit-modules</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>bit-system</artifactId>
+
+    <description>
+        system系统模块
+    </description>
+
+    <dependencies>
+        <!-- 通用工具-->
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-doc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-mybatis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-translation</artifactId>
+        </dependency>
+
+        <!-- OSS功能模块 -->
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-oss</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-log</artifactId>
+        </dependency>
+
+        <!-- excel-->
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-excel</artifactId>
+        </dependency>
+
+        <!-- SMS功能模块 -->
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-sms</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-tenant</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-idempotent</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bit</groupId>
+            <artifactId>bit-common-sensitive</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
