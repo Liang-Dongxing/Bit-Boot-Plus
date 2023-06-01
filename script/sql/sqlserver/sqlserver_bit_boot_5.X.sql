@@ -1409,8 +1409,6 @@ INSERT sys_menu VALUES (2, N'系统监控', 0, 3, N'monitor', NULL, N'', 1, 0, N
 GO
 INSERT sys_menu VALUES (3, N'系统工具', 0, 4, N'tool', NULL, N'', 1, 0, N'M', N'0', N'0', N'', N'tool', 103, 1, getdate(), NULL, NULL, N'系统工具目录')
 GO
-INSERT sys_menu VALUES (4, N'PLUS官网', 0, 5, N'https://gitee.com/dromara/RuoYi-Vue-Plus', null, N'', 0, 0, N'M', N'0', N'0', N'', N'guide', 103, 1, getdate(), null, null, N'RuoYi-Vue-Plus官网地址');
-GO
 INSERT sys_menu VALUES (100, N'用户管理', 1, 1, N'user', N'system/user/index', N'', 1, 0, N'C', N'0', N'0', N'system:user:list', N'user', 103, 1, getdate(), NULL, NULL, N'用户管理菜单')
 GO
 INSERT sys_menu VALUES (101, N'角色管理', 1, 2, N'role', N'system/role/index', N'', 1, 0, N'C', N'0', N'0', N'system:role:list', N'peoples', 103, 1, getdate(), NULL, NULL, N'角色管理菜单')
@@ -2809,13 +2807,13 @@ EXEC sp_addextendedproperty
     'TABLE', N'sys_oss_config'
 GO
 
-INSERT INTO sys_oss_config VALUES (N'1', N'000000', N'minio', N'ruoyi',            N'ruoyi123',        N'ruoyi',            N'', N'127.0.0.1:9000',                    N'',N'N', N'',           N'1', N'0', N'', 103, 1, getdate(), 1, getdate(), NULL)
+INSERT INTO sys_oss_config VALUES (N'1', N'000000', N'minio', N'bit',            N'bit123',        N'bit',            N'', N'127.0.0.1:9000',                    N'',N'N', N'',           N'1', N'0', N'', 103, 1, getdate(), 1, getdate(), NULL)
 GO
-INSERT INTO sys_oss_config VALUES (N'2', N'000000', N'qiniu', N'XXXXXXXXXXXXXXXX', N'XXXXXXXXXXXXXXX', N'ruoyi',            N'', N's3-cn-north-1.qiniucs.com',         N'',N'N', N'',           N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
+INSERT INTO sys_oss_config VALUES (N'2', N'000000', N'qiniu', N'XXXXXXXXXXXXXXXX', N'XXXXXXXXXXXXXXX', N'bit',            N'', N's3-cn-north-1.qiniucs.com',         N'',N'N', N'',           N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
 GO
-INSERT INTO sys_oss_config VALUES (N'3', N'000000', N'aliyun', N'XXXXXXXXXXXXXXX', N'XXXXXXXXXXXXXXX', N'ruoyi',            N'', N'oss-cn-beijing.aliyuncs.com',       N'',N'N', N'',           N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
+INSERT INTO sys_oss_config VALUES (N'3', N'000000', N'aliyun', N'XXXXXXXXXXXXXXX', N'XXXXXXXXXXXXXXX', N'bit',            N'', N'oss-cn-beijing.aliyuncs.com',       N'',N'N', N'',           N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
 GO
-INSERT INTO sys_oss_config VALUES (N'4', N'000000', N'qcloud', N'XXXXXXXXXXXXXXX', N'XXXXXXXXXXXXXXX', N'ruoyi-1250000000', N'', N'cos.ap-beijing.myqcloud.com',       N'',N'N', N'ap-beijing', N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
+INSERT INTO sys_oss_config VALUES (N'4', N'000000', N'qcloud', N'XXXXXXXXXXXXXXX', N'XXXXXXXXXXXXXXX', N'bit-1250000000', N'', N'cos.ap-beijing.myqcloud.com',       N'',N'N', N'ap-beijing', N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
 GO
-INSERT INTO sys_oss_config VALUES (N'5', N'000000', N'image',  N'ruoyi',           N'ruoyi123',        N'ruoyi',            N'image', N'127.0.0.1:9000',               N'',N'N', N'',           N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
+INSERT INTO sys_oss_config VALUES (N'5', N'000000', N'image',  N'bit',           N'bit123',        N'bit',            N'image', N'127.0.0.1:9000',               N'',N'N', N'',           N'1', N'1', N'', 103, 1, getdate(), 1, getdate(), NULL)
 GO
