@@ -215,8 +215,8 @@ swagger:
     version: '版本号: ${bit.version}'
     # 作者信息
     contact:
-      name: Lion Li
-      email: crazylionli@163.com
+      name: LiangDongXing
+      email: LiangDongXing.cn@outlook.com
       url: https://github.com/Liang-Dongxing/Bit-Boot-Plus
   components:
     # 鉴权方式配置
