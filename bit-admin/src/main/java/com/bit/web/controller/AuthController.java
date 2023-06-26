@@ -2,14 +2,15 @@ package com.bit.web.controller;
 
 import cn.dev33.satoken.annotation.SaIgnore;
 import cn.hutool.core.collection.CollUtil;
-import com.bit.common.tenant.helper.TenantHelper;
-import com.bit.system.domain.bo.SysTenantBo;
-import com.bit.system.domain.vo.SysTenantVo;
-import com.bit.system.service.ISysConfigService;
-import com.bit.system.service.ISysTenantService;
-import com.bit.web.domain.vo.LoginTenantVo;
-import com.bit.web.domain.vo.LoginVo;
-import com.bit.web.domain.vo.TenantListVo;
+import cn.hutool.core.util.ObjectUtil;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.constraints.NotBlank;
+import lombok.RequiredArgsConstructor;
+import me.zhyd.oauth.model.AuthCallback;
+import me.zhyd.oauth.model.AuthResponse;
+import me.zhyd.oauth.model.AuthUser;
+import me.zhyd.oauth.request.AuthRequest;
+import me.zhyd.oauth.utils.AuthStateUtils;
 import com.bit.common.core.domain.R;
 import com.bit.common.core.domain.model.EmailLoginBody;
 import com.bit.common.core.domain.model.LoginBody;
@@ -18,11 +19,20 @@ import com.bit.common.core.domain.model.SmsLoginBody;
 import com.bit.common.core.utils.MapstructUtils;
 import com.bit.common.core.utils.StreamUtils;
 import com.bit.common.core.utils.StringUtils;
+import com.bit.common.social.config.properties.SocialLoginConfigProperties;
+import com.bit.common.social.config.properties.SocialProperties;
+import com.bit.common.social.utils.SocialUtils;
+import com.bit.common.tenant.helper.TenantHelper;
+import com.bit.system.domain.bo.SysTenantBo;
+import com.bit.system.domain.vo.SysTenantVo;
+import com.bit.system.service.ISysSocialService;
+import com.bit.system.service.ISysConfigService;
+import com.bit.system.service.ISysTenantService;
+import com.bit.web.domain.vo.LoginTenantVo;
+import com.bit.web.domain.vo.LoginVo;
+import com.bit.web.domain.vo.TenantListVo;
 import com.bit.web.service.SysLoginService;
 import com.bit.web.service.SysRegisterService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.constraints.NotBlank;
-import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,10 +51,13 @@ import java.util.List;
 @RequestMapping("/auth")
 public class AuthController {
 
+    private final SocialProperties socialProperties;
     private final SysLoginService loginService;
     private final SysRegisterService registerService;
     private final ISysConfigService configService;
     private final ISysTenantService tenantService;
+    private final ISysSocialService socialUserService;
+
 
     /**
      * 登录方法
@@ -114,6 +127,61 @@ public class AuthController {
         loginVo.setToken(token);
         return R.ok(loginVo);
     }
+
+
+    /**
+     * 认证授权
+     *
+     * @param source 登录来源
+     * @return 结果
+     */
+    @GetMapping("/binding/{source}")
+    public R<String> authBinding(@PathVariable("source") String source) {
+        SocialLoginConfigProperties obj = socialProperties.getType().get(source);
+        if (ObjectUtil.isNull(obj)) {
+            return R.fail(source + "平台账号暂不支持");
+        }
+        AuthRequest authRequest = SocialUtils.getAuthRequest(source,
+            obj.getClientId(),
+            obj.getClientSecret(),
+            obj.getRedirectUri());
+        String authorizeUrl = authRequest.authorize(AuthStateUtils.createState());
+        return R.ok(authorizeUrl);
+    }
+
+    /**
+     * 第三方登录回调业务处理
+     *
+     * @param source   登录来源
+     * @param callback 授权响应实体
+     * @return 结果
+     */
+    @SuppressWarnings("unchecked")
+    @GetMapping("/social-login")
+    public R<String> socialLogin(String source, AuthCallback callback) {
+        SocialLoginConfigProperties obj = socialProperties.getType().get(source);
+        if (ObjectUtil.isNull(obj)) {
+            return R.fail(source + "平台账号暂不支持");
+        }
+        AuthRequest authRequest = SocialUtils.getAuthRequest(source,
+            obj.getClientId(),
+            obj.getClientSecret(),
+            obj.getRedirectUri());
+        AuthResponse<AuthUser> response = authRequest.login(callback);
+        return loginService.socialLogin(source, response);
+    }
+
+    /**
+     * 取消授权
+     *
+     * @param socialId socialId
+     */
+    @DeleteMapping(value = "/unlock/{socialId}")
+    public R<Void> unlockSocial(@PathVariable Long socialId) {
+        Boolean rows = socialUserService.deleteWithValidById(socialId);
+        return rows ? R.ok() : R.fail("取消授权失败");
+    }
+
 
     /**
      * 退出登录

@@ -11,6 +11,7 @@
 
     <modules>
         <module>bit-common-bom</module>
+        <module>bit-common-social</module>
         <module>bit-common-core</module>
         <module>bit-common-doc</module>
         <module>bit-common-excel</module>

@@ -20,10 +20,9 @@
         <!-- 通用工具-->
         <dependency>
             <groupId>com.bit</groupId>
-            <artifactId>bit-common-core</artifactId>
+            <artifactId>bit-common-json</artifactId>
         </dependency>
 
-        <!-- 调度模块 -->
         <dependency>
             <groupId>com.bit</groupId>
             <artifactId>bit-common-job</artifactId>
