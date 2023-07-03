@@ -7,6 +7,9 @@ import com.bit.common.social.config.properties.SocialProperties;
 
 import java.time.Duration;
 
+/**
+ * 授权状态缓存
+ */
 @AllArgsConstructor
 public class AuthRedisStateCache implements AuthStateCache {
 

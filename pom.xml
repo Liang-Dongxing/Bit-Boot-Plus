@@ -32,7 +32,7 @@
         <spring-boot-admin.version>3.0.4</spring-boot-admin.version>
         <redisson.version>3.20.1</redisson.version>
         <lock4j.version>2.2.4</lock4j.version>
-        <dynamic-ds.version>3.6.1</dynamic-ds.version>
+        <dynamic-ds.version>4.0.0</dynamic-ds.version>
         <alibaba-ttl.version>2.14.2</alibaba-ttl.version>
         <xxl-job.version>2.4.0</xxl-job.version>
         <powerjob.version>4.3.3</powerjob.version>
@@ -202,7 +202,7 @@
             <!-- dynamic-datasource 多数据源-->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
                 <version>${dynamic-ds.version}</version>
             </dependency>
 
@@ -280,6 +280,18 @@
                 <version>${xxl-job.version}</version>
             </dependency>
 
+            <!-- PowerJob -->
+            <dependency>
+                <groupId>tech.powerjob</groupId>
+                <artifactId>powerjob-worker-spring-boot-starter</artifactId>
+                <version>${powerjob.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.powerjob</groupId>
+                <artifactId>powerjob-official-processors</artifactId>
+                <version>${powerjob.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>
@@ -335,18 +347,6 @@
                 <groupId>com.bit</groupId>
                 <artifactId>bit-demo</artifactId>
                 <version>${revision}</version>
-            </dependency>
-
-            <!-- PowerJob -->
-            <dependency>
-                <groupId>tech.powerjob</groupId>
-                <artifactId>powerjob-worker-spring-boot-starter</artifactId>
-                <version>${powerjob.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>tech.powerjob</groupId>
-                <artifactId>powerjob-official-processors</artifactId>
-                <version>${powerjob.version}</version>
             </dependency>
 
         </dependencies>

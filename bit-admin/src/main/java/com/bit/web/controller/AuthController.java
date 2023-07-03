@@ -4,9 +4,8 @@ import cn.dev33.satoken.annotation.SaIgnore;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
-import me.zhyd.oauth.model.AuthCallback;
+import lombok.extern.slf4j.Slf4j;
 import me.zhyd.oauth.model.AuthResponse;
 import me.zhyd.oauth.model.AuthUser;
 import me.zhyd.oauth.request.AuthRequest;
@@ -44,6 +43,7 @@ import java.util.List;
  *
  * @author Lion Li
  */
+@Slf4j
 @SaIgnore
 @Validated
 @RequiredArgsConstructor
@@ -57,80 +57,34 @@ public class AuthController {
     private final ISysConfigService configService;
     private final ISysTenantService tenantService;
     private final ISysSocialService socialUserService;
+    private final ISysClientService clientService;
 
 
     /**
      * 登录方法
      *
-     * @param body 登录信息
+     * @param loginBody 登录信息
      * @return 结果
      */
     @PostMapping("/login")
-    public R<LoginVo> login(@Validated @RequestBody LoginBody body) {
-        LoginVo loginVo = new LoginVo();
-        // 生成令牌
-        String token = loginService.login(
-            body.getTenantId(),
-            body.getUsername(), body.getPassword(),
-            body.getCode(), body.getUuid());
-        loginVo.setToken(token);
-        return R.ok(loginVo);
+    public R<LoginVo> login(@Validated @RequestBody LoginBody loginBody) {
+        // 授权类型和客户端id
+        String clientId = loginBody.getClientId();
+        String grantType = loginBody.getGrantType();
+        SysClient client = clientService.queryByClientId(clientId);
+        // 查询不到 client 或 client 内不包含 grantType
+        if (ObjectUtil.isNull(client) || !StringUtils.contains(client.getGrantType(), grantType)) {
+            log.info("客户端id: {} 认证类型：{} 异常!.", clientId, grantType);
+            return R.fail(MessageUtils.message("auth.grant.type.error"));
+        }
+        // 校验租户
+        loginService.checkTenant(loginBody.getTenantId());
+        // 登录
+        return R.ok(IAuthStrategy.login(loginBody, client));
     }
 
     /**
-     * 短信登录
-     *
-     * @param body 登录信息
-     * @return 结果
-     */
-    @PostMapping("/smsLogin")
-    public R<LoginVo> smsLogin(@Validated @RequestBody SmsLoginBody body) {
-        LoginVo loginVo = new LoginVo();
-        // 生成令牌
-        String token = loginService.smsLogin(
-            body.getTenantId(),
-            body.getPhonenumber(),
-            body.getSmsCode());
-        loginVo.setToken(token);
-        return R.ok(loginVo);
-    }
-
-    /**
-     * 邮件登录
-     *
-     * @param body 登录信息
-     * @return 结果
-     */
-    @PostMapping("/emailLogin")
-    public R<LoginVo> emailLogin(@Validated @RequestBody EmailLoginBody body) {
-        LoginVo loginVo = new LoginVo();
-        // 生成令牌
-        String token = loginService.emailLogin(
-            body.getTenantId(),
-            body.getEmail(),
-            body.getEmailCode());
-        loginVo.setToken(token);
-        return R.ok(loginVo);
-    }
-
-    /**
-     * 小程序登录(示例)
-     *
-     * @param xcxCode 小程序code
-     * @return 结果
-     */
-    @PostMapping("/xcxLogin")
-    public R<LoginVo> xcxLogin(@NotBlank(message = "{xcx.code.not.blank}") String xcxCode) {
-        LoginVo loginVo = new LoginVo();
-        // 生成令牌
-        String token = loginService.xcxLogin(xcxCode);
-        loginVo.setToken(token);
-        return R.ok(loginVo);
-    }
-
-
-    /**
-     * 认证授权
+     * 第三方登录请求
      *
      * @param source 登录来源
      * @return 结果
@@ -141,35 +95,29 @@ public class AuthController {
         if (ObjectUtil.isNull(obj)) {
             return R.fail(source + "平台账号暂不支持");
         }
-        AuthRequest authRequest = SocialUtils.getAuthRequest(source,
-            obj.getClientId(),
-            obj.getClientSecret(),
-            obj.getRedirectUri());
+        AuthRequest authRequest = SocialUtils.getAuthRequest(source, socialProperties);
         String authorizeUrl = authRequest.authorize(AuthStateUtils.createState());
-        return R.ok(authorizeUrl);
+        return R.ok("操作成功", authorizeUrl);
     }
 
     /**
-     * 第三方登录回调业务处理
+     * 第三方登录回调业务处理 绑定授权
      *
-     * @param source   登录来源
-     * @param callback 授权响应实体
+     * @param loginBody 请求体
      * @return 结果
      */
-    @SuppressWarnings("unchecked")
-    @GetMapping("/social-login")
-    public R<String> socialLogin(String source, AuthCallback callback) {
-        SocialLoginConfigProperties obj = socialProperties.getType().get(source);
-        if (ObjectUtil.isNull(obj)) {
-            return R.fail(source + "平台账号暂不支持");
+    @PostMapping("/social/callback")
+    public R<LoginVo> socialCallback(@RequestBody LoginBody loginBody) {
+        // 获取第三方登录信息
+        AuthResponse<AuthUser> response = SocialUtils.loginAuth(loginBody, socialProperties);
+        AuthUser authUserData = response.getData();
+        // 判断授权响应是否成功
+        if (!response.ok()) {
+            return R.fail(response.getMsg());
         }
-        AuthRequest authRequest = SocialUtils.getAuthRequest(source,
-            obj.getClientId(),
-            obj.getClientSecret(),
-            obj.getRedirectUri());
-        AuthResponse<AuthUser> response = authRequest.login(callback);
-        return loginService.socialLogin(source, response);
+        return loginService.sociaRegister(authUserData);
     }
+
 
     /**
      * 取消授权

@@ -1,9 +1,8 @@
-package com.bit.system.service;
+package org.dromara.system.service;
 
 import cn.hutool.core.lang.tree.Tree;
-import com.bit.system.domain.SysDept;
-import com.bit.system.domain.bo.SysDeptBo;
-import com.bit.system.domain.vo.SysDeptVo;
+import org.dromara.system.domain.bo.SysDeptBo;
+import org.dromara.system.domain.vo.SysDeptVo;
 
 import java.util.List;
 
@@ -35,7 +34,7 @@ public interface ISysDeptService {
      * @param depts 部门列表
      * @return 下拉树结构列表
      */
-    List<Tree<Long>> buildDeptTreeSelect(List<SysDept> depts);
+    List<Tree<Long>> buildDeptTreeSelect(List<SysDeptVo> depts);
 
     /**
      * 根据角色ID查询部门树信息
