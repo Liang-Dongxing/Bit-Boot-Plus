@@ -1,4 +1,4 @@
-package org.dromara.system.controller.system;
+package com.bit.system.controller.system;
 
 import java.util.List;
 
@@ -8,19 +8,19 @@ import jakarta.validation.constraints.*;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.annotation.Validated;
-import org.dromara.common.idempotent.annotation.RepeatSubmit;
-import org.dromara.common.log.annotation.Log;
-import org.dromara.common.web.core.BaseController;
-import org.dromara.common.mybatis.core.page.PageQuery;
-import org.dromara.common.core.domain.R;
-import org.dromara.common.core.validate.AddGroup;
-import org.dromara.common.core.validate.EditGroup;
-import org.dromara.common.log.enums.BusinessType;
-import org.dromara.common.excel.utils.ExcelUtil;
-import org.dromara.system.domain.vo.SysClientVo;
-import org.dromara.system.domain.bo.SysClientBo;
-import org.dromara.system.service.ISysClientService;
-import org.dromara.common.mybatis.core.page.TableDataInfo;
+import com.bit.common.idempotent.annotation.RepeatSubmit;
+import com.bit.common.log.annotation.Log;
+import com.bit.common.web.core.BaseController;
+import com.bit.common.mybatis.core.page.PageQuery;
+import com.bit.common.core.domain.R;
+import com.bit.common.core.validate.AddGroup;
+import com.bit.common.core.validate.EditGroup;
+import com.bit.common.log.enums.BusinessType;
+import com.bit.common.excel.utils.ExcelUtil;
+import com.bit.system.domain.vo.SysClientVo;
+import com.bit.system.domain.bo.SysClientBo;
+import com.bit.system.service.ISysClientService;
+import com.bit.common.mybatis.core.page.TableDataInfo;
 
 /**
  * 客户端管理

@@ -1,8 +1,8 @@
-package org.dromara.system.service;
+package com.bit.system.service;
 
 import cn.hutool.core.lang.tree.Tree;
-import org.dromara.system.domain.bo.SysDeptBo;
-import org.dromara.system.domain.vo.SysDeptVo;
+import com.bit.system.domain.bo.SysDeptBo;
+import com.bit.system.domain.vo.SysDeptVo;
 
 import java.util.List;
 

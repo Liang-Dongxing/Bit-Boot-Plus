@@ -1,23 +1,23 @@
-package org.dromara.web.service.impl;
+package com.bit.web.service.impl;
 
 import cn.dev33.satoken.stp.SaLoginModel;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.ObjectUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.dromara.common.core.constant.Constants;
-import org.dromara.common.core.domain.model.LoginBody;
-import org.dromara.common.core.domain.model.XcxLoginUser;
-import org.dromara.common.core.enums.UserStatus;
-import org.dromara.common.core.utils.MessageUtils;
-import org.dromara.common.core.utils.ValidatorUtils;
-import org.dromara.common.core.validate.auth.WechatGroup;
-import org.dromara.common.satoken.utils.LoginHelper;
-import org.dromara.system.domain.SysClient;
-import org.dromara.system.domain.vo.SysUserVo;
-import org.dromara.web.domain.vo.LoginVo;
-import org.dromara.web.service.IAuthStrategy;
-import org.dromara.web.service.SysLoginService;
+import com.bit.common.core.constant.Constants;
+import com.bit.common.core.domain.model.LoginBody;
+import com.bit.common.core.domain.model.XcxLoginUser;
+import com.bit.common.core.enums.UserStatus;
+import com.bit.common.core.utils.MessageUtils;
+import com.bit.common.core.utils.ValidatorUtils;
+import com.bit.common.core.validate.auth.WechatGroup;
+import com.bit.common.satoken.utils.LoginHelper;
+import com.bit.system.domain.SysClient;
+import com.bit.system.domain.vo.SysUserVo;
+import com.bit.web.domain.vo.LoginVo;
+import com.bit.web.service.IAuthStrategy;
+import com.bit.web.service.SysLoginService;
 import org.springframework.stereotype.Service;
 
 /**

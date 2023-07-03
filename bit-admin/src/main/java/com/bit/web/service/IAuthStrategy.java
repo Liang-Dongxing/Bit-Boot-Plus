@@ -1,11 +1,11 @@
-package org.dromara.web.service;
+package com.bit.web.service;
 
 
-import org.dromara.common.core.domain.model.LoginBody;
-import org.dromara.common.core.exception.ServiceException;
-import org.dromara.common.core.utils.SpringUtils;
-import org.dromara.system.domain.SysClient;
-import org.dromara.web.domain.vo.LoginVo;
+import com.bit.common.core.domain.model.LoginBody;
+import com.bit.common.core.exception.ServiceException;
+import com.bit.common.core.utils.SpringUtils;
+import com.bit.system.domain.SysClient;
+import com.bit.web.domain.vo.LoginVo;
 
 /**
  * 授权策略

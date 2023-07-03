@@ -1,10 +1,10 @@
-package org.dromara.system.domain.vo;
+package com.bit.system.domain.vo;
 
-import org.dromara.system.domain.SysClient;
+import com.bit.system.domain.SysClient;
 import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
-import org.dromara.common.excel.annotation.ExcelDictFormat;
-import org.dromara.common.excel.convert.ExcelDictConvert;
+import com.bit.common.excel.annotation.ExcelDictFormat;
+import com.bit.common.excel.convert.ExcelDictConvert;
 import io.github.linpeilie.annotations.AutoMapper;
 import lombok.Data;
 

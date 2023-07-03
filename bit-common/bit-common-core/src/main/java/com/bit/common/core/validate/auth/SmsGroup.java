@@ -1,4 +1,4 @@
-package org.dromara.common.core.validate.auth;
+package com.bit.common.core.validate.auth;
 
 /**
  * @Author Michelle.Chung

@@ -1,4 +1,4 @@
-package org.dromara.common.core.domain.model;
+package com.bit.common.core.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

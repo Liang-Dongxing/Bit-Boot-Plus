@@ -3,7 +3,7 @@ package com.bit.common.core.domain.model;
 import jakarta.validation.constraints.Email;
 import com.bit.common.core.constant.UserConstants;
 import lombok.Data;
-import org.dromara.common.core.validate.auth.*;
+import com.bit.common.core.validate.auth.*;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package org.dromara.system.service.impl;
+package com.bit.system.service.impl;
 
 import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -7,15 +7,15 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.dromara.common.core.utils.MapstructUtils;
-import org.dromara.common.core.utils.StringUtils;
-import org.dromara.common.mybatis.core.page.PageQuery;
-import org.dromara.common.mybatis.core.page.TableDataInfo;
-import org.dromara.system.domain.SysClient;
-import org.dromara.system.domain.bo.SysClientBo;
-import org.dromara.system.domain.vo.SysClientVo;
-import org.dromara.system.mapper.SysClientMapper;
-import org.dromara.system.service.ISysClientService;
+import com.bit.common.core.utils.MapstructUtils;
+import com.bit.common.core.utils.StringUtils;
+import com.bit.common.mybatis.core.page.PageQuery;
+import com.bit.common.mybatis.core.page.TableDataInfo;
+import com.bit.system.domain.SysClient;
+import com.bit.system.domain.bo.SysClientBo;
+import com.bit.system.domain.vo.SysClientVo;
+import com.bit.system.mapper.SysClientMapper;
+import com.bit.system.service.ISysClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
