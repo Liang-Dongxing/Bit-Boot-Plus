@@ -43,12 +43,6 @@ EXEC sys.sp_addextendedproperty
     'COLUMN', N'id'
 GO
 EXEC sys.sp_addextendedproperty
-    'MS_Description', N'主键' ,
-    'SCHEMA', N'dbo',
-    'TABLE', N'sys_social',
-    'COLUMN', N'id'
-GO
-EXEC sys.sp_addextendedproperty
     'MS_Description', N'用户ID' ,
     'SCHEMA', N'dbo',
     'TABLE', N'sys_social',
@@ -2741,9 +2735,9 @@ EXEC sys.sp_addextendedproperty
     'TABLE', N'sys_user'
 GO
 
-INSERT sys_user VALUES (1, 103, N'000000', N'admin', N'疯狂的狮子Li', N'sys_user', N'crazyLionLi@163.com', N'15888888888', N'1', NULL, N'$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', N'0', N'0', N'127.0.0.1', getdate(), 103, 1, getdate(), NULL, NULL, N'管理员')
+INSERT sys_user VALUES (1, N'000000', 103,  N'admin', N'疯狂的狮子Li', N'sys_user', N'crazyLionLi@163.com', N'15888888888', N'1', NULL, N'$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', N'0', N'0', N'127.0.0.1', getdate(), 103, 1, getdate(), NULL, NULL, N'管理员')
 GO
-INSERT sys_user VALUES (2, 105, N'000000', N'lionli', N'疯狂的狮子Li', N'sys_user', N'crazyLionLi@qq.com', N'15666666666', N'1', NULL, N'$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', N'0', N'0', N'127.0.0.1', getdate(), 103, 1, getdate(), NULL, NULL, N'测试员')
+INSERT sys_user VALUES (2, N'000000', 105,  N'lionli', N'疯狂的狮子Li', N'sys_user', N'crazyLionLi@qq.com', N'15666666666', N'1', NULL, N'$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', N'0', N'0', N'127.0.0.1', getdate(), 103, 1, getdate(), NULL, NULL, N'测试员')
 GO
 
 CREATE TABLE sys_user_post
@@ -3114,7 +3108,7 @@ EXEC sys.sp_addextendedproperty
 'MS_Description', N'客户端id' ,
 'SCHEMA', N'dbo',
 'TABLE', N'sys_client',
-'COLUMN', N'tenant_id'
+'COLUMN', N'client_id'
 GO
 EXEC sp_addextendedproperty
 'MS_Description', N'客户端key',

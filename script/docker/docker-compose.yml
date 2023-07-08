@@ -100,7 +100,7 @@ services:
     network_mode: "host"
 
   bit-server1:
-    image: bit/bit-server:5.0.0
+    image: bit/bit-server:5.1.0
     container_name: bit-server1
     environment:
       # 时区上海
@@ -115,7 +115,7 @@ services:
     network_mode: "host"
 
   bit-server2:
-    image: bit/bit-server:5.0.0
+    image: bit/bit-server:5.1.0
     container_name: bit-server2
     environment:
       # 时区上海
@@ -130,7 +130,7 @@ services:
     network_mode: "host"
 
   bit-monitor-admin:
-    image: bit/bit-monitor-admin:5.0.0
+    image: bit/bit-monitor-admin:5.1.0
     container_name: bit-monitor-admin
     environment:
       # 时区上海
@@ -142,7 +142,7 @@ services:
     network_mode: "host"
 
   bit-powerjob-server:
-    image: bit/bit-powerjob-server:5.0.0
+    image: bit/bit-powerjob-server:5.1.0
     container_name: bit-powerjob-server
     environment:
       # 时区上海
