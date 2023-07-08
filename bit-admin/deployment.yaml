@@ -1,0 +1,83 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: om7-v1
+  namespace: om7
+  labels:
+    app: om7
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: om7
+      version: v1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: om7
+        version: v1
+    spec:
+      volumes:
+        - name: volume-f64ir0
+          configMap:
+            name: om-admin-dev
+            items:
+              - key: application-dev.yml
+                path: application-dev.yml
+            defaultMode: 420
+      containers:
+        - name: container-dbf5ek
+          image: ${REGISTRY}/${HARBOR_NAMESPACE}/${APP_NAME}:${APP_VERSION}-${BUILD_NUMBER}
+          ports:
+            - name: tcp-8080
+              containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: volume-f64ir0
+              readOnly: true
+              mountPath: /om/server/config
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: default
+      serviceAccount: default
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: om7
+  namespace: om7
+  labels:
+    app: om7
+    version: v1
+spec:
+  ports:
+    - name: tcp-8080
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 38080
+  selector:
+    app: om7
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
