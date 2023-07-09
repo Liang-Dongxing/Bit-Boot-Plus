@@ -1,9 +1,9 @@
 package com.bit.common.social.utils;
 
 import com.bit.common.redis.utils.RedisUtils;
+import com.bit.common.social.config.properties.SocialProperties;
 import lombok.AllArgsConstructor;
 import me.zhyd.oauth.cache.AuthStateCache;
-import com.bit.common.social.config.properties.SocialProperties;
 
 import java.time.Duration;
 

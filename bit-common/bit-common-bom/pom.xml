@@ -123,12 +123,6 @@
                 <version>${revision}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.bit</groupId>
-                <artifactId>ruoyi-common-social</artifactId>
-                <version>${revision}</version>
-            </dependency>
-
             <!-- web服务 -->
             <dependency>
                 <groupId>com.bit</groupId>

@@ -1,6 +1,8 @@
 package com.bit.common.social.utils;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.bit.common.social.config.properties.SocialLoginConfigProperties;
+import com.bit.common.social.config.properties.SocialProperties;
 import me.zhyd.oauth.config.AuthConfig;
 import me.zhyd.oauth.exception.AuthException;
 import me.zhyd.oauth.model.AuthCallback;
@@ -8,8 +10,6 @@ import me.zhyd.oauth.model.AuthResponse;
 import me.zhyd.oauth.model.AuthUser;
 import me.zhyd.oauth.request.*;
 import com.bit.common.core.domain.model.LoginBody;
-import com.bit.common.social.config.properties.SocialLoginConfigProperties;
-import com.bit.common.social.config.properties.SocialProperties;
 
 /**
  * 认证授权工具类
