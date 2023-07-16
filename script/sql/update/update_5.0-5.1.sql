@@ -40,6 +40,7 @@ create table sys_social
     PRIMARY KEY (id)
 ) engine=innodb comment = '社会化关系表';
 
+
 -- ----------------------------
 -- 系统授权表
 -- ----------------------------

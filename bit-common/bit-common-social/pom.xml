@@ -23,6 +23,11 @@
 
         <dependency>
             <groupId>com.bit</groupId>
+            <artifactId>bit-common-json</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.bit</groupId>
             <artifactId>bit-common-redis</artifactId>
         </dependency>
     </dependencies>

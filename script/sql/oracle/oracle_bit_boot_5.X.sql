@@ -67,7 +67,6 @@ comment on column  sys_social.update_by         is '更新者';
 comment on column  sys_social.update_time       is '更新时间';
 comment on column  sys_social.del_flag          is '删除标志（0代表存在 2代表删除）';
 
-
 -- ----------------------------
 -- 租户表
 -- ----------------------------
