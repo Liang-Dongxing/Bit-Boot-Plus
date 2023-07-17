@@ -270,7 +270,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 .CodeMirror-linewidget {
   position: relative;
   z-index: 2;
-  padding: 0.1px; /* Force widget margins to stay inside of the container */
+  padding: 0; /* Force widget margins to stay inside of the container */
 }
 
 .CodeMirror-widget {}
@@ -287,7 +287,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 .CodeMirror-gutter,
 .CodeMirror-gutters,
 .CodeMirror-linenumber {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -330,7 +329,7 @@ div.CodeMirror-dragcursors {
 }
 
 /* Used to force a border model for a node */
-.cm-force-border { padding-right: .1px; }
+.cm-force-border { padding-right: 0; }
 
 @media print {
   /* Hide the cursor when printing */
